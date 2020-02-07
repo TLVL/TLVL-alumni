@@ -13,14 +13,14 @@
         </div>
         <div class="row">
             <div class="col-md-3 field-label-responsive">
-                <label for="firstName">Имя</label>
+                <label for="firstName">Имя*</label>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
                         <input type="text" name="firstName" class="form-control" id="firstName"
-                               placeholder="Павел" required="" autofocus oninvalid="this.setCustomValidity('Имя и Фамилия обязательны')"
+                               placeholder="Павел" required="" autofocus oninvalid="this.setCustomValidity('Имя обязательно')"
  oninput="setCustomValidity('')"  >
                     </div>
                 </div>
@@ -35,14 +35,14 @@
         </div>
          <div class="row">
             <div class="col-md-3 field-label-responsive">
-                <label for="lastName">Фамилия</label>
+                <label for="lastName">Фамилия*</label>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
                         <input type="text" name="lastName" class="form-control" id="lastName"
-                               placeholder="Гуляев" required="" autofocus oninvalid="this.setCustomValidity('Имя и Фамилия обязательны')"
+                               placeholder="Гуляев" required="" autofocus oninvalid="this.setCustomValidity('Фамилия обязательна')"
  oninput="setCustomValidity('')"  >
                     </div>
                 </div>
@@ -57,7 +57,7 @@
         </div>
         <div class="row">
             <div class="col-md-3 field-label-responsive">
-                <label for="email">E-Mail </label>
+                <label for="email">E-Mail*</label>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
@@ -79,14 +79,14 @@
         </div>
         <div class="row">
             <div class="col-md-3 field-label-responsive">
-                <label for="password">Пароль</label>
+                <label for="password">Пароль*</label>
             </div>
             <div class="col-md-6">
                 <div class="form-group has-danger">
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                         <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
                         <input type="password" name="password" class="form-control" id="password"
-                               placeholder="Пароль" required  oninvalid="this.setCustomValidity('Пароль обязателен')"
+                               placeholder="Придумайте новый пароль" required  oninvalid="this.setCustomValidity('Пароль обязателен')"
  oninput="setCustomValidity('')" >
                     </div>
                 </div>
@@ -101,7 +101,7 @@
         </div>
         <div class="row">
             <div class="col-md-3 field-label-responsive">
-                <label for="password">Пароль ещё раз</label>
+                <label for="password">Повторите новый пароль*</label>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
@@ -110,7 +110,7 @@
                             <i class="fa fa-repeat"></i>
                         </div>
                         <input type="password" name="password-confirmation" class="form-control"
-                               id="password-confirm" placeholder="Пароль ещё раз" required  oninvalid="this.setCustomValidity('Пароль обязателен')"
+                               id="password-confirm" placeholder="Повторите пароль" required  oninvalid="this.setCustomValidity('Пароль обязателен')"
  oninput="setCustomValidity('')" >
                     </div>
                 </div>
@@ -118,7 +118,7 @@
         </div>
         <div class="row">
             <div class="col-md-3 field-label-responsive">
-                <label for="teacherName">Классный руководитель</label>
+                <label for="teacherName">Классный руководитель*</label>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
@@ -221,7 +221,7 @@
 
 	   <div class="row">
             <div class="col-md-3 field-label-responsive">
-                <label for="addr">Город в котором находитесь</label>
+                <label for="addr">Город в котором находитесь*</label>
             </div>
             <div class="col-md-6">
 
@@ -233,7 +233,7 @@
  oninput="setCustomValidity('')" />
         </div>
         <div class = "col-md-6">
-            <button type="button" class="btn btn-info" onclick="searchAddress();">Поиск</button>
+            <button type="button" class="btn btn-info" onclick="addr_search();">Поиск</button>
             </div>
         </div>
           <div id="results"></div>
@@ -257,12 +257,14 @@
 
 	  <div class="row mt-4">
             <div class="col-md-3 field-label-responsive">
-                <label for="graduation_year">Год выпуска:</label>
+                <label for="graduation_year">Год выпуска*</label>
             </div>
             <div class="col-md-6">
        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-          <select name="graduation_year" class = "form-group form-control" style="margin-left:  2.6rem ">
-    <option value="2018">2019</option>
+          <select name="graduation_year" required class = "form-group form-control" style="margin-left:  2.6rem " oninvalid="this.setCustomValidity('Год выпуска обязателен')"
+ oninput="setCustomValidity('')">
+    <option value=""></option>
+    <option value="2019">2019</option>
     <option value="2018">2018</option>
     <option value="2017">2017</option>
     <option value="2016">2016</option>
@@ -304,6 +306,8 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6 text-center">
+                <button type="submit" disabled style="display: none" aria-hidden="true"></button>
+                
                 <button type="submit" class="btn btn-success"><i class="fa fa-user-plu "></i> Зарегистрироваться</button>
             </div>
         </div>
